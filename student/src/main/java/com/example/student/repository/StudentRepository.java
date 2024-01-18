@@ -15,14 +15,20 @@ public class StudentRepository {
 
 	public void save(StudentDTO studentDTO) {
 		// TODO Auto-generated method stub
-		System.out.println("StudentRepository.save()");
+		System.out.println("studentRepository.save()");
 		sql.insert("Student.save", studentDTO);
 	}
 
 	public List<StudentDTO> findAll() {
 		// TODO Auto-generated method stub
-		System.out.println("StudentRepository.findAll");
+		System.out.println("studentRepository.findAll");
 		return sql.selectList("Student.findAll");
+	}
+
+	public StudentDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		System.out.println("studentRepository.findById");
+		return sql.selectOne("Student.findById", id);
 	}
 
 	

@@ -21,8 +21,14 @@ public class StudentService {
 
 	public List<StudentDTO> findAll() {
 		// TODO Auto-generated method stub
-		System.out.println("StudentService.findAll");
+		System.out.println("studentService.findAll");
 		return studentRepository.findAll();
+	}
+
+	public StudentDTO findById(Long id) {
+		// TODO Auto-generated method stub
+		System.out.println("studentService.findById");
+		return studentRepository.findById(id);
 	}
 
 }
