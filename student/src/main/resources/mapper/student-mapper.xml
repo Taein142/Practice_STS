@@ -16,4 +16,8 @@
 		select * from student_table where id = #{id}
 	</select>
 	
+	<update id="update" parameterType="com.example.student.dto.StudentDTO">
+		update student_table set studentName=#{studentName}, studentMajor=#{studentMajor}, studentMobile=#{studentMobile}
+				where id=#{id}
+	</update>
 </mapper>

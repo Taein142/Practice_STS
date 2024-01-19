@@ -31,6 +31,14 @@ public class StudentRepository {
 		return sql.selectOne("Student.findById", id);
 	}
 
+	public void update(StudentDTO studentDTO) {
+		// TODO Auto-generated method stub
+		System.out.println("studentRepository.update");
+		sql.update("Student.update", studentDTO);
+	}
+
+	
+
 	
 
 }

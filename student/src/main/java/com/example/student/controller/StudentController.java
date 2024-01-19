@@ -17,13 +17,13 @@ import com.example.student.dto.StudentDTO;
 public class StudentController {
 	@Autowired
 	private StudentService studentService;
-	
+
 	@GetMapping("/save")
 	public String save() {
 		System.out.println("StudentController.save.get");
 		return "save";
 	}
-	
+
 	@PostMapping("/save")
 	public String save(@ModelAttribute StudentDTO studentDTO) {
 		System.out.println("StudentController.save.post");
@@ -32,7 +32,7 @@ public class StudentController {
 		return "redirect:/list";
 		// return "index";
 	}
-	
+
 	@GetMapping("/list")
 	public String findAll(Model model) {
 		System.out.println("StudentController.findAll");
@@ -41,16 +41,30 @@ public class StudentController {
 		System.out.println(studentDTOs);
 		return "list";
 	}
-	
+
 	@GetMapping("/student/{id}")
 	public String findById(@PathVariable("id") Long id, Model model) {
-		System.out.println("Controller.findById");
-		System.out.println("id =" + id);
+		System.out.println("Controller.findById" + "id =" + id);
 		StudentDTO studentDTO = studentService.findById(id);
 		System.out.println("studentDTO = " + studentDTO);
 		model.addAttribute("student", studentDTO);
 		System.out.println(model);
-		System.out.println(1);
 		return "detail";
 	}
+
+	@GetMapping("/student/update/{id}")
+	public String update(@PathVariable("id") Long id, Model model) {
+		System.out.println("Controller.update");
+		StudentDTO studentDTO = studentService.findById(id);
+		model.addAttribute("student", studentDTO);
+		System.out.println("Controller.update" + model);
+		return "update";
+	}
+	@PostMapping("/update")
+	public String update(StudentDTO studentDTO) {
+		System.out.println("Controller.update.post  studentDTO = " + studentDTO);
+		studentService.update(studentDTO);
+		return "redirect:/list";
+	}
+
 }

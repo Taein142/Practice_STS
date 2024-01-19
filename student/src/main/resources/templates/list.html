@@ -30,7 +30,7 @@
 				<button th:onclick="update([[${student.id}]])">수정</button>
 			</td>
 			<td>
-				<button th:onclick="delete([[${student.id}]])">삭제</button>
+				<button th:onclick="delete1([[${student.id}]])">삭제</button>
 			</td>
 		</tr>
 		<a href="/">시작화면으로</a>
@@ -41,6 +41,14 @@
 		console.log("list.html.script.detail");
 		console.log("클릭한 학생의 id", id);
 		location.href = `/student/${id}`;
+	}
+	const update = (id) => {
+		console.log("list.html.script.update");
+		location.href = `/student/update/${id}`;
+	}
+	const delete1 = (id) => {
+		console.log("list.html.script.delete1");
+		location.href = `/student/delete/${id}`;
 	}
 </script>
 </html>

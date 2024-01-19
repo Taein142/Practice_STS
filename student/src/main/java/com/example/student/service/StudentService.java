@@ -31,4 +31,12 @@ public class StudentService {
 		return studentRepository.findById(id);
 	}
 
+	public void update(StudentDTO studentDTO) {
+		// TODO Auto-generated method stub
+		System.out.println("studentService.update");
+		studentRepository.update(studentDTO);
+	}
+
+	
+
 }
